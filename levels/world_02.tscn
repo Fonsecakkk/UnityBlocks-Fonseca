@@ -1,6 +1,6 @@
 [gd_scene load_steps=35 format=4 uid="uid://bgnofix6aq5fp"]
 
-[ext_resource type="Script" uid="uid://ddeicrb5ub18r" path="res://scripts/world_01.gd" id="1_87v3f"]
+[ext_resource type="Script" uid="uid://gwv0wqp1ko42" path="res://scripts/world_02.gd" id="1_85etp"]
 [ext_resource type="Texture2D" uid="uid://b2tc0vxtqiorp" path="res://assets/Background/bg-dark-forest.png" id="2_y5ite"]
 [ext_resource type="Texture2D" uid="uid://bylv6t345sy0f" path="res://assets/Background/cloud-01-df.png" id="3_7qssf"]
 [ext_resource type="Texture2D" uid="uid://cjcdxrogaqcwu" path="res://assets/Background/cloud-02-df.png" id="4_85etp"]
@@ -27,7 +27,7 @@
 [ext_resource type="AudioStream" uid="uid://bpl81kjvltxu1" path="res://musicas/som floresta.wav" id="28_7qssf"]
 [ext_resource type="PackedScene" uid="uid://bllfwbvwni8mm" path="res://scenes/espinhos.tscn" id="28_85etp"]
 [ext_resource type="PackedScene" uid="uid://d3ifsie2h04gy" path="res://scenes/caixa.tscn" id="29_8h3ws"]
-[ext_resource type="PackedScene" uid="uid://cygdf0gvy2ubf" path="res://items/falling_platform.tscn" id="29_85etp"]
+[ext_resource type="PackedScene" uid="uid://cedq3pxa2750x" path="res://levels/falling_platform_terra.tscn" id="29_85etp"]
 [ext_resource type="AudioStream" uid="uid://405wf12hdyid" path="res://musicas/som floresta (1).wav" id="30_8h3ws"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_samdc"]
@@ -292,7 +292,7 @@ shader_parameter/line_color_a = Color(0.67451, 0.8, 0.894118, 1)
 shader_parameter/line_color_b = Color(0.887285, 0.932199, 0.931839, 1)
 
 [node name="World-02" type="Node2D"]
-script = ExtResource("1_87v3f")
+script = ExtResource("1_85etp")
 
 [node name="BG" type="Node2D" parent="."]
 position = Vector2(552, 34)
@@ -358,10 +358,10 @@ destino = ExtResource("10_fnhbv")
 
 [node name="Player" parent="Players" instance=ExtResource("11_ncdwf")]
 visibility_layer = 3
-position = Vector2(289, 218)
+position = Vector2(215, 206)
 
 [node name="MultiplayerPlayer" parent="Players" instance=ExtResource("12_whufi")]
-position = Vector2(334, 154)
+position = Vector2(258, 179)
 
 [node name="lever" parent="." instance=ExtResource("10_q6ugd")]
 position = Vector2(1540, 236)
@@ -444,16 +444,16 @@ position = Vector2(741, 186)
 position = Vector2(935, 219)
 
 [node name="coin8" parent="Coins" instance=ExtResource("24_7hik1")]
-position = Vector2(1432, 220)
+position = Vector2(1434, 225)
 
 [node name="coin11" parent="Coins" instance=ExtResource("24_7hik1")]
-position = Vector2(1372, 222)
+position = Vector2(1372, 227)
 
 [node name="coin9" parent="Coins" instance=ExtResource("24_7hik1")]
-position = Vector2(1309, 223)
+position = Vector2(1310, 223)
 
 [node name="coin10" parent="Coins" instance=ExtResource("24_7hik1")]
-position = Vector2(1245, 222)
+position = Vector2(1237, 222)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("25_5e75l")]
 
@@ -471,24 +471,24 @@ position = Vector2(1305, 380)
 [node name="espinhos5" parent="." instance=ExtResource("28_85etp")]
 position = Vector2(1409, 380)
 
-[node name="FallingPlatform" parent="." instance=ExtResource("29_85etp")]
-position = Vector2(1308, 248)
-
-[node name="FallingPlatform3" parent="." instance=ExtResource("29_85etp")]
-position = Vector2(1372, 248)
-
-[node name="FallingPlatform4" parent="." instance=ExtResource("29_85etp")]
-position = Vector2(1434, 248)
-
-[node name="FallingPlatform2" parent="." instance=ExtResource("29_85etp")]
-position = Vector2(1246, 248)
-
 [node name="caixa" parent="." instance=ExtResource("29_8h3ws")]
 position = Vector2(519, 346)
 
 [node name="musica" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("30_8h3ws")
 autoplay = true
+
+[node name="FallingPlatformTerra" parent="." instance=ExtResource("29_85etp")]
+position = Vector2(1241, 249)
+
+[node name="FallingPlatformTerra2" parent="." instance=ExtResource("29_85etp")]
+position = Vector2(1308, 249)
+
+[node name="FallingPlatformTerra3" parent="." instance=ExtResource("29_85etp")]
+position = Vector2(1372, 249)
+
+[node name="FallingPlatformTerra4" parent="." instance=ExtResource("29_85etp")]
+position = Vector2(1432, 250)
 
 [connection signal="body_entered" from="Door" to="Door" method="_on_Door_body_entered"]
 [connection signal="body_exited" from="Door" to="Door" method="_on_Door_body_exited"]
