@@ -1,0 +1,120 @@
+[gd_scene load_steps=15 format=3 uid="uid://cwyn6fy3gv7j1"]
+
+[ext_resource type="Texture2D" uid="uid://qsje0n4rsuu7" path="res://assets/pixel art final/snake-sprites.png" id="1_ejw4d"]
+[ext_resource type="Script" uid="uid://dqe1f044c5rs0" path="res://inimigo/inimigo.gd" id="1_i7v7x"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uf7c4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6gry"]
+atlas = ExtResource("1_ejw4d")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ub845"]
+atlas = ExtResource("1_ejw4d")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3ntc"]
+atlas = ExtResource("1_ejw4d")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ni051"]
+atlas = ExtResource("1_ejw4d")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4ddm"]
+atlas = ExtResource("1_ejw4d")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kn5jp"]
+atlas = ExtResource("1_ejw4d")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uf7c4"]
+atlas = ExtResource("1_ejw4d")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a6uj8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s6gry")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ub845")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3ntc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ni051")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q4ddm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kn5jp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uf7c4")
+}],
+"loop": true,
+"name": &"morrer",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i7v7x"]
+size = Vector2(20, 3)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5p17d"]
+radius = 5.09902
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fcuxk"]
+
+[node name="inimigo" type="CharacterBody2D"]
+script = ExtResource("1_i7v7x")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_uf7c4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 4)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_a6uj8")
+autoplay = "default"
+frame_progress = 0.470452
+
+[node name="Head" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Head"]
+shape = SubResource("RectangleShape2D_i7v7x")
+
+[node name="Body" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_5p17d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_fcuxk")
+
+[node name="DamageArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(0, 2)
+target_position = Vector2(7, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(-4, 2)
+target_position = Vector2(-7, 0)
+
+[connection signal="body_entered" from="Head" to="." method="_on_area_2d_head_body_entered"]
+[connection signal="body_entered" from="Body" to="." method="_on_area_2d_body_body_entered"]
+[connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]

@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=3 uid="uid://7twkjogtdbne"]
+
+[ext_resource type="Texture2D" uid="uid://dx35003qkaa56" path="res://slime_green.png" id="1_d6tns"]
+[ext_resource type="Script" path="res://slimedeath.gd" id="2_othbv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0k11f"]
+atlas = ExtResource("1_d6tns")
+region = Rect2(46, 48, 23, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5wgw"]
+atlas = ExtResource("1_d6tns")
+region = Rect2(69, 0, 23, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vq6t3"]
+atlas = ExtResource("1_d6tns")
+region = Rect2(46, 0, 23, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58u8m"]
+atlas = ExtResource("1_d6tns")
+region = Rect2(23, 0, 23, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcfqx"]
+atlas = ExtResource("1_d6tns")
+region = Rect2(0, 0, 23, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3celo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0k11f")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_k5wgw")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_vq6t3")
+}, {
+"duration": 0.81,
+"texture": SubResource("AtlasTexture_58u8m")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_gcfqx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="slimedeath" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_3celo")
+frame_progress = 0.527418
+script = ExtResource("2_othbv")
