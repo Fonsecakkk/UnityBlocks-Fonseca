@@ -1,0 +1,193 @@
+[gd_scene load_steps=16 format=3 uid="uid://lx4brci6m51n"]
+
+[ext_resource type="Script" uid="uid://cu4ey5hvmqxkh" path="res://tela_final.gd" id="1_adb6y"]
+[ext_resource type="FontFile" uid="uid://dl8yj2ntmcyrb" path="res://fonts/at01.ttf" id="2_m8j5f"]
+[ext_resource type="Theme" uid="uid://di1uyrlheoldq" path="res://themes/defalt_btn.tres" id="3_355ji"]
+[ext_resource type="PackedScene" uid="uid://ddbrbpua16drs" path="res://scenes/tela_final.tscn" id="3_xg3co"]
+[ext_resource type="Texture2D" uid="uid://d3og48syaujm7" path="res://Gray_Buttons_Pixel.png" id="5_pecjh"]
+[ext_resource type="AudioStream" uid="uid://b0bhxrm7y1530" path="res://musicas/som-do-jogo-fase-da-areia.wav" id="6_ullwp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q2j58"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8sbev"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5v11f"]
+atlas = ExtResource("5_pecjh")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mtom7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5v11f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_toyo6"]
+atlas = ExtResource("5_pecjh")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_43pg4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_toyo6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6oma"]
+atlas = ExtResource("5_pecjh")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_17yr3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6oma")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jlgf5"]
+
+[node name="tela_Final" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -4.0
+offset_right = -4.0
+script = ExtResource("1_adb6y")
+
+[node name="quit2" type="Button" parent="."]
+layout_mode = 2
+offset_left = 383.0
+offset_top = 194.5
+offset_right = 398.0
+offset_bottom = 215.5
+theme_override_fonts/font = ExtResource("2_m8j5f")
+text = "."
+
+[node name="tela_final" parent="quit2" instance=ExtResource("3_xg3co")]
+offset_left = -386.0
+offset_top = -192.5
+offset_right = -386.0
+offset_bottom = -192.5
+
+[node name="settings2" type="Button" parent="."]
+visible = false
+layout_mode = 2
+offset_left = 53.0
+offset_top = 177.0
+offset_right = 69.0
+offset_bottom = 198.0
+theme_override_fonts/font = ExtResource("2_m8j5f")
+text = "."
+
+[node name="start2" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 2
+offset_left = 380.0
+offset_top = 162.5
+offset_right = 398.0
+offset_bottom = 183.5
+theme_override_fonts/font = ExtResource("2_m8j5f")
+text = "."
+
+[node name="bg" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 404.0
+offset_top = 165.5
+offset_right = 611.0
+offset_bottom = 232.5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="start" type="Button" parent="MarginContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("3_355ji")
+theme_override_fonts/font = ExtResource("2_m8j5f")
+text = "VOLTAR AO MENU"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_q2j58")
+
+[node name="settings" type="Button" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("3_355ji")
+theme_override_fonts/font = ExtResource("2_m8j5f")
+text = "SETTINGS"
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_8sbev")
+
+[node name="quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_355ji")
+theme_override_fonts/font = ExtResource("2_m8j5f")
+text = "QUIT"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 231.0
+offset_top = 84.0
+offset_right = 367.0
+offset_bottom = 107.0
+
+[node name="start" type="AnimatedSprite2D" parent="."]
+position = Vector2(389, 172.5)
+scale = Vector2(1.3125, 1.3125)
+sprite_frames = SubResource("SpriteFrames_mtom7")
+
+[node name="settings" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(192, 196)
+scale = Vector2(1.28125, 1.3125)
+sprite_frames = SubResource("SpriteFrames_43pg4")
+
+[node name="quit" type="AnimatedSprite2D" parent="."]
+position = Vector2(388, 202.5)
+scale = Vector2(1.25, 1.34375)
+sprite_frames = SubResource("SpriteFrames_17yr3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jlgf5")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_ullwp")
+pitch_scale = 0.84
+autoplay = true
+
+[connection signal="pressed" from="quit2" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="settings2" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="settings2" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="start2" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="start2" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/start" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/settings" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]

@@ -11,12 +11,11 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_start_pressed() -> void:
-	get_tree().change_scene_to_file("res://levels/world_01.tscn")
 
 
-func _on_settings_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/controls_screen.tscn")
+func _on_start_3_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/tela_inicio_local.tscn")
 
-func _on_quit_pressed() -> void:
+
+func _on_quit_2_pressed() -> void:
 	get_tree().quit()
